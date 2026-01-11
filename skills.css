@@ -1,0 +1,315 @@
+/* ---------------- NEW SKILLS PAGE STYLES (skills.html) ---------------- */
+
+/* Wrapper for the full page layout (centered content) */
+.skills-wrapper {
+    padding: 120px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Page Title Styles (reused from Projects/Hackathons or defined here) */
+.page-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.page-title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    color: #fff;
+    overflow: hidden;
+    transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-text-stroke: 0;
+    white-space: nowrap;
+}
+
+.page-title:hover::after,
+.skills-wrapper:hover .page-title::after {
+    width: 100%;
+}
+
+
+/* Grid Layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Skill Card (Category) */
+.skill-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Category Title */
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-title i {
+    color: #888;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.skill-card:hover .category-title i {
+    color: #fff;
+}
+
+/* Skills List/Tags */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    /* Pill shape */
+    color: #ccc;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-tag i {
+    font-size: 1rem;
+}
+
+.skill-tag:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Icon Background */
+.floating-icon {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 8rem;
+    opacity: 0.03;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    transform: rotate(15deg);
+}
+
+.skill-card:hover .floating-icon {
+    opacity: 0.08;
+    transform: rotate(0deg) scale(1.1);
+}
+
+/* Animation */
+.skill-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.skill-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skill-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skill-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 900px) {
+    .page-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .skills-wrapper {
+        padding: 100px 5%;
+    }
+}
+
+
+/* ---------------- ORIGINAL SKILLS STYLES (Restored for index.html) ---------------- */
+
+.skill-category {
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #1a1a1a;
+    padding: 1.5rem 2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    color: white;
+    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.skill-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-category:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.skill-category:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.skill-category:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.skill-category:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+/* Hover Effect for Bar */
+.skill-category:hover {
+    transform: scale(1.02);
+    border-color: #fff;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+    background: #222;
+}
+
+.skill-category h3 {
+    font-size: 1.2rem;
+    min-width: 180px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.pill {
+    font-size: 2rem;
+    color: #888;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pill:hover {
+    color: #fff;
+    transform: translateY(-5px) scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+@media (max-width: 900px) {
+
+    /* Scoping for old index styles if needed, but classes are distinct */
+    .skill-category {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-radius: 20px;
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .skill-category h3 {
+        min-width: auto;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-pills {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    .pill {
+        font-size: 1.5rem;
+    }
+}

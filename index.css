@@ -1,0 +1,113 @@
+/* ---------------- HERO PAGE SPECIFIC STYLES ---------------- */
+.page {
+    height: 100vh;
+    width: 100%;
+    background-image: url("background image.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 80px;
+    /* offset for fixed navbar */
+}
+
+/* ---------------- TYPEWRITER ---------------- */
+.hero-text {
+    position: absolute;
+    top: 15%;
+    /* Significantly pushed down from 5% to ~35% to clear navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+    width: 100%;
+    /* Ensure it centers properly */
+}
+
+#typewriter {
+    font-size: 6rem;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    border-right: 4px solid black;
+    padding-right: 6px;
+    animation: blink 0.8s steps(1) infinite;
+    transition: opacity 0.25s ease;
+    font-family: 'Times New Roman', serif;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        border-color: black;
+    }
+
+    51%,
+    100% {
+        border-color: transparent;
+    }
+}
+
+/* ---------------- HERO IMAGE ---------------- */
+.hero {
+    height: 20rem;
+    width: 20rem;
+    background-image: url("kaveesh headshot.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.hero:hover {
+    transform: scale(1.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------------- CONTACT SECTION OVERRIDES ---------------- */
+/* Contact styles are in global.css, but if we need specific spacing for home page */
+#contact {
+    padding-top: 50px;
+    /* Adjust if needed */
+}
+
+@media (max-width: 900px) {
+    #typewriter {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        height: 15rem;
+        width: 15rem;
+    }
+}
+
+/* ---------------- SHOW MORE BUTTON ---------------- */
+.show-more-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.show-more-btn:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}

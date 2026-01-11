@@ -1,0 +1,360 @@
+/* ---------------- EXPERIENCE PAGE STYLES ---------------- */
+
+/* Scoped to experience section to avoid global conflicts */
+#experience {
+    position: relative;
+    background: #050505;
+    /* Deep dark background */
+    overflow: hidden;
+}
+
+/* Background Decoration */
+#experience::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+#experience::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Header Section */
+.exp-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 120px;
+    /* Add padding to clear fixed navbar */
+}
+
+.page-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.page-title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    overflow: hidden;
+    width: 0;
+    transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-text-stroke: 0;
+    white-space: nowrap;
+}
+
+.page-title:hover::after,
+.exp-header:hover .page-title::after {
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .page-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+/* Container */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+    z-index: 1;
+}
+
+/* Center Line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Timeline Item */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    opacity: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* Left and Right containers */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Icons on the Line */
+.timeline-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: -20px;
+    background: #000;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    top: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -20px;
+}
+
+.timeline-item:hover .timeline-icon {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    border-color: #fff;
+}
+
+/* Content Card */
+.timeline-card {
+    padding: 25px;
+    /* Increased padding */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    /* Smoother radius */
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(15px);
+    /* Stronger blur */
+}
+
+.timeline-item:hover .timeline-card {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrows */
+.timeline-item:nth-child(odd) .timeline-card::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 28px;
+    width: 0;
+    z-index: 1;
+    right: -10px;
+    border: medium solid rgba(255, 255, 255, 0.05);
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.05);
+    transition: border-color 0.4s;
+}
+
+.timeline-item:nth-child(even) .timeline-card::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 28px;
+    width: 0;
+    z-index: 1;
+    left: -10px;
+    border: medium solid rgba(255, 255, 255, 0.05);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgba(255, 255, 255, 0.05) transparent transparent;
+    transition: border-color 0.4s;
+}
+
+.timeline-item:hover:nth-child(odd) .timeline-card::before {
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.3);
+}
+
+.timeline-item:hover:nth-child(even) .timeline-card::before {
+    border-color: transparent rgba(255, 255, 255, 0.3) transparent transparent;
+}
+
+
+/* Typography */
+.job-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    background: linear-gradient(to right, #fff, #bbb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.company-name {
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.job-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    /* Align right for odd */
+}
+
+.timeline-item:nth-child(even) .job-meta {
+    justify-content: flex-start;
+}
+
+.job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Description List */
+.job-description {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    /* Always align text left for readability? Or follow card align? */
+    /* Let's keep aligned with card for aesthetic, or left for read. 
+       Usually centering text for list is bad. Let's force left text for list content inside the card? 
+    */
+}
+
+.timeline-item:nth-child(odd) .job-description {
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .job-description {
+    text-align: left;
+}
+
+.job-description li {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    position: relative;
+    display: inline-block;
+    /* Helps with text gradient effect if we wanted, but simple block is fine */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .job-meta {
+        justify-content: flex-start;
+    }
+
+    .timeline-item:nth-child(odd) .job-description {
+        text-align: left;
+    }
+
+    .timeline-icon {
+        left: 10px !important;
+        right: auto;
+    }
+
+    .timeline-card::before {
+        left: -10px !important;
+        border-width: 10px 10px 10px 0 !important;
+        border-color: transparent rgba(255, 255, 255, 0.05) transparent transparent !important;
+    }
+
+    .timeline-item:hover .timeline-card::before {
+        border-color: transparent rgba(255, 255, 255, 0.3) transparent transparent !important;
+    }
+}

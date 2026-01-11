@@ -1,0 +1,414 @@
+/* ---------------- HACKATHONS PAGE STYLES ---------------- */
+
+.hackathons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hackathon-card {
+    background-color: #1a1a1a;
+    /* Dark card */
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    padding: 1rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #333;
+    cursor: pointer;
+    /* Indicate clickable */
+}
+
+.hackathon-card:hover {
+    transform: translateY(-5px);
+    border-color: white;
+}
+
+/* Winner Accent */
+.hackathon-card.winner {
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.hackathon-card.winner:hover {
+    border-color: #ffd700;
+}
+
+/* Runner Up Accent */
+.hackathon-card.runner-up {
+    border-color: rgba(192, 192, 192, 0.3);
+}
+
+.hackathon-card.runner-up:hover {
+    border-color: #c0c0c0;
+}
+
+
+.hackathon-img-container {
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.hackathon-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.hackathon-placeholder i {
+    transition: transform 0.3s;
+}
+
+.hackathon-card:hover .hackathon-placeholder i {
+    transform: scale(1.1);
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.winner .hackathon-placeholder i {
+    color: rgba(255, 215, 0, 0.2);
+}
+
+.winner:hover .hackathon-placeholder i {
+    color: rgba(255, 215, 0, 0.5);
+}
+
+.runner-up .hackathon-placeholder i {
+    color: rgba(192, 192, 192, 0.2);
+}
+
+.runner-up:hover .hackathon-placeholder i {
+    color: rgba(192, 192, 192, 0.5);
+}
+
+
+.hackathon-info h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.hackathon-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Reusing generic card styles from projects.css where appropriate or overriding */
+.card-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Hide detail lists and images in the small card view */
+.card-desc ul,
+.card-images {
+    display: none;
+}
+
+.card-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #ccc;
+    transition: all 0.3s;
+}
+
+.hackathon-card:hover .tag {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Modal Styles */
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Reduced opacity for overlay */
+    /* Remove blur from overlay to emphasize card blur */
+    animation: fadeIn 0.4s ease;
+}
+
+.modal-content {
+    background: rgba(22, 22, 22, 0.65);
+    /* Semi-transparent dark bg */
+    backdrop-filter: blur(20px);
+    /* Heavy blur for glass effect */
+    -webkit-backdrop-filter: blur(20px);
+    margin: 8vh auto 4vh;
+    /* Adjust margin */
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Crisper border */
+    width: 90%;
+    max-width: 700px;
+    border-radius: 24px;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    position: relative;
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: normal;
+    /* Fix alignment */
+    padding-bottom: 2px;
+    /* Visual adjustment */
+}
+
+.close-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Header */
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    margin-right: 3rem;
+    /* Avoid overlap with close btn */
+    align-items: flex-start;
+}
+
+.modal-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff, #bbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+/* Sections */
+.modal-section {
+    margin-bottom: 2rem;
+}
+
+.modal-section h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.modal-section p,
+.modal-section div {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.highlight-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Badge styling enhancement */
+#modal-status {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    border-radius: 6px;
+    box-shadow: 0 0 20px -5px currentColor;
+    /* Glow based on text color */
+    margin-top: 1rem;
+}
+
+/* Tags override for modal */
+#modal-tags .tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    border-radius: 50px;
+}
+
+#modal-tags .tag:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Modal Gallery */
+.modal-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+    /* For scrollbar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.modal-gallery::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.modal-gallery::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.modal-gallery img {
+    height: 150px;
+    /* Fixed height */
+    width: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px) scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Slideshow Styles */
+.hackathon-img-container.slideshow {
+    position: relative;
+    overflow: hidden;
+}
+
+.hackathon-img-container.slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: slideShow 15s infinite;
+}
+
+.hackathon-img-container.slideshow img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hackathon-img-container.slideshow img:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.hackathon-img-container.slideshow img:nth-child(3) {
+    animation-delay: 6s;
+}
+
+.hackathon-img-container.slideshow img:nth-child(4) {
+    animation-delay: 9s;
+}
+
+.hackathon-img-container.slideshow img:nth-child(5) {
+    animation-delay: 12s;
+}
+
+@keyframes slideShow {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

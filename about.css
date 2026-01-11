@@ -1,0 +1,92 @@
+/* ---------------- ABOUT PAGE SPECIFIC STYLES ---------------- */
+.page1 {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 5%;
+    gap: 2rem;
+    padding-top: 100px;
+    /* Offset for fixed navbar */
+}
+
+.aboutme-image {
+    height: 30rem;
+    width: 30rem;
+    background-image: url("Kaveesh Professional headshot.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.12);
+    filter: grayscale(100%);
+    transform: perspective(1000px) rotateY(10deg);
+    position: relative;
+    z-index: 2;
+}
+
+.aboutme-image-container {
+    position: relative;
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spotlight {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(40px);
+    z-index: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.aboutme-image:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.20);
+    filter: grayscale(0%);
+}
+
+.aboutme-note {
+    width: 50%;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.aboutme-note h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ---------------- RESPONSIVE MEDIA QUERIES ---------------- */
+@media (max-width: 900px) {
+    .page1 {
+        flex-direction: column;
+        padding: 3rem 2rem;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .aboutme-image {
+        width: 70%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .aboutme-note {
+        width: 100%;
+        padding-top: 2rem;
+    }
+}

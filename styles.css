@@ -1,0 +1,654 @@
+/* ---------------- RESET ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: white;
+  /* Resetted to white so navbar (black text) is visible */
+  --text-color: black;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+}
+
+/* --------------- MAIN WRAPPER --------------- */
+.main {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav {
+  padding: 1rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95);
+  /* High opacity white */
+  backdrop-filter: blur(8px);
+  /* Glass effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow for depth */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  /* Bolder logo */
+  color: black;
+  letter-spacing: -1px;
+  /* Modern spacing */
+  font-family: 'Poppins', sans-serif;
+  /* Use sans-serif for logo if available, else serif fallback */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  /* More space between links */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  /* Darker gray for cleaner look */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links li a:hover {
+  color: black;
+  border-bottom: 2px solid black;
+  /* Underline effect */
+}
+
+/* ---------------- HERO PAGE ---------------- */
+.page {
+  height: 100vh;
+  width: 100%;
+  background-image: url("background image.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 80px;
+  /* offset for fixed navbar */
+}
+
+/* ---------------- TYPEWRITER ---------------- */
+.hero-text {
+  position: absolute;
+  top: 15%;
+  /* Significantly pushed down from 5% to ~35% to clear navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 20;
+  width: 100%;
+  /* Ensure it centers properly */
+}
+
+#typewriter {
+  font-size: 6rem;
+  /* Slightly reduced from 8rem to fit better, but still large */
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 4px solid black;
+  padding-right: 6px;
+  animation: blink 0.8s steps(1) infinite;
+  transition: opacity 0.25s ease;
+  font-family: 'Times New Roman', serif;
+  /* Keep serif for the visual punch */
+}
+
+@keyframes blink {
+
+  0%,
+  50% {
+    border-color: black;
+  }
+
+  51%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* ---------------- HERO IMAGE ---------------- */
+.hero {
+  height: 20rem;
+  width: 20rem;
+  background-image: url("kaveesh headshot.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.hero:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------------- ABOUT PAGE ---------------- */
+.page1 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 5%;
+  gap: 2rem;
+}
+
+.aboutme-image {
+  height: 30rem;
+  width: 30rem;
+  background-image: url("kaveesh headshot.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.12);
+}
+
+.aboutme-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.20);
+}
+
+.aboutme-note {
+  width: 50%;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.aboutme-note h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------------- RESPONSIVE MEDIA QUERIES (ORIGINAL) ---------------- */
+@media (max-width: 900px) {
+  .page1 {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .aboutme-image {
+    width: 70%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .aboutme-note {
+    width: 100%;
+    padding-top: 2rem;
+  }
+
+  #typewriter {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    height: 15rem;
+    width: 15rem;
+  }
+}
+
+/* =========================================
+   NEW SECTIONS STYLES (Adapted)
+   ========================================= */
+
+/* ---------------- SECTIONS COMMON ---------------- */
+.section-common {
+  padding: 100px 10%;
+  /* Keep background black to match 'About' page if desired, or alternate */
+  background-color: black;
+  color: white;
+}
+
+.section-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: normal;
+  color: white;
+}
+
+/* ---------------- EXPERIENCE ---------------- */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Vertical Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  /* Adjust based on icon size */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #333;
+  /* Dark line */
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 100px;
+  /* Space for icon and line */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Green Icon Circle */
+.timeline-icon {
+  position: absolute;
+  left: 25px;
+  /* Center on line (50px) -> 25px + 50px/2 width */
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 255, 136, 0.1);
+  /* Light green tint */
+  border: 2px solid white;
+  /* Green border */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  z-index: 2;
+  background-color: black;
+  /* Prevent line from showing through */
+}
+
+/* The Card */
+.timeline-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Glassy/Dark card */
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.timeline-card:hover {
+  border-color: white;
+  transform: translateX(10px);
+}
+
+/* Job Title */
+.job-title {
+  color: white;
+  /* Green title */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Meta Info (Date/Location) */
+.job-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.job-meta i {
+  margin-right: 5px;
+}
+
+/* Company Name */
+.company-name {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Description List */
+.job-description {
+  list-style: none;
+  padding-left: 0;
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.job-description li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-description li::before {
+  content: '•';
+  color: white;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-icon {
+    left: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+  }
+}
+
+
+/* ---------------- PROJECTS ---------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: #1a1a1a;
+  /* Dark card */
+  border-radius: 20px;
+  overflow: hidden;
+  color: white;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  border: 1px solid #333;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: white;
+}
+
+.project-img-container {
+  width: 100%;
+  height: 200px;
+  background-color: #333;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.project-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+
+/* ---------------- SKILLS ---------------- */
+.skill-category {
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: white;
+  border: 1px solid #333;
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  min-width: 180px;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pill {
+  font-weight: 500;
+}
+
+
+/* ---------------- CONTACT ---------------- */
+.contact-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.contact-form-wrapper {
+  background: white;
+  /* White card */
+  border-radius: 20px;
+  padding: 2rem;
+  color: black;
+  /* Black text */
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form-wrapper h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  border-radius: 30px;
+  /* Rounded inputs */
+  border: none;
+  background: black;
+  /* Black inputs */
+  color: white;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.contact-form textarea {
+  border-radius: 20px;
+}
+
+.contact-form button {
+  background: black;
+  /* Black button */
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+.contact-form button:hover {
+  opacity: 0.8;
+}
+
+.contact-info-wrapper {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-box {
+  background: white;
+  /* White card */
+  border-radius: 20px;
+  padding: 2rem;
+  color: black;
+  flex-grow: 1;
+}
+
+.info-box h3,
+.social-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.info-box p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+}
+
+.social-box {
+  background: white;
+  /* White card */
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  color: black;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.8rem;
+  /* Larger icons */
+}
+
+/* ---------------- RESPONSIVE FOR NEW SECTIONS ---------------- */
+@media (max-width: 900px) {
+  .skill-category {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 20px;
+    gap: 1rem;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  background-color: #000;
+  color: #999;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-top: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+footer p {
+  color: #555;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
