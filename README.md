@@ -22,7 +22,7 @@ This portfolio serves as a central hub for my professional profile, resume, and 
 
 - **HTML5** – Structure and content  
 - **CSS3** – Styling, layout, and responsiveness  
-- **JavaScript** – Interactive elements (if applicable)  
+- **JavaScript** – Interactive elements 
 
 ---
 
