@@ -27,4 +27,24 @@ This portfolio serves as a central hub for my professional profile, resume, and 
 ---
 
 ## 📁 Project Structure
+   ```bash
+├── about.html
+├── about.css
+├── experience.html
+├── experience.css
+├── contact.html
+├── background image.png
+└── (other assets & files)
+   ```
+
+---
+
+## 🚀 Getting Started
+
+To run this project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kaveesh-kadirvel/portfolio.git
+
 
